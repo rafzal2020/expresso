@@ -1,6 +1,6 @@
 # expresso
 
-*justify your expensive hobby*
+I made this to help justify this expensive hobby of mine by visually being able to see if I save money by making espresso at home vs. going to a traditional cafe.
 
 A home-espresso tracker: what beans you've bought, how you dialed them in, what you've made with them, and whether the whole setup has paid for itself yet.
 

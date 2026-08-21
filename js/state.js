@@ -97,7 +97,7 @@ function mergeDuplicateBeans(){
     if(!norm){ merged.push(b); return; }
     const existing = seen.get(norm);
     if(existing){
-      existing.qty = (existing.qty||1) + (b.qty||1);
+      existing.qty = (existing.qty ?? 1) + (b.qty ?? 1);
       if((b.purchaseDate||'') > (existing.purchaseDate||'')){
         existing.purchaseDate = b.purchaseDate;
         existing.roastLevel = b.roastLevel;

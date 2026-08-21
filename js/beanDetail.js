@@ -54,7 +54,7 @@ function beanDetailListHtml(bean){
 }
 
 function qtyStepperHtml(bean){
-  const qty = bean.qty || 0;
+  const qty = bean.qty ?? 1;
   return `
     <div class="bd-qty-row" id="bd-qty-row">
       <div class="bd-qty-stepper">
@@ -69,7 +69,7 @@ function qtyStepperHtml(bean){
 }
 
 function adjustBeanQty(bean, delta){
-  bean.qty = Math.max(0, (bean.qty||0) + delta);
+  bean.qty = Math.max(0, (bean.qty ?? 1) + delta);
   persist('beans', state.beans);
 
   const qtyEl = document.getElementById('bd-qty-value');

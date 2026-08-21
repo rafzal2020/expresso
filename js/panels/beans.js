@@ -61,7 +61,7 @@ function openBeanSheet(){
 }
 
 function computeBeanTotal(){
-  return state.beans.reduce((s,b)=> s + (parseFloat(b.price)||0) * (b.qty||1), 0);
+  return state.beans.reduce((s,b)=> s + (parseFloat(b.price)||0) * (b.qty ?? 1), 0);
 }
 
 function updateBeanTotalStat(){
@@ -110,7 +110,7 @@ function renderBeanCards(){
 function addOrRestockBean(draft){
   const existing = findBeanByName(draft.bean);
   if(existing){
-    existing.qty = (existing.qty||1) + draft.qty;
+    existing.qty = (existing.qty ?? 1) + draft.qty;
     existing.roastLevel = draft.roastLevel;
     existing.roastDate = draft.roastDate;
     existing.weightOz = draft.weightOz;
@@ -158,10 +158,11 @@ function refreshBeanCard(id){
 }
 
 function beanCardHtml(b){
-  const qty = b.qty || 1;
+  const qty = b.qty ?? 1;
   const unitPrice = parseFloat(b.price) || 0;
   const total = unitPrice * qty;
-  const priceLine = qty > 1 ? `${qty} × ${money(unitPrice)} = ${money(total)}` : money(unitPrice);
+  const priceLine = qty===0 ? 'Out of stock' : qty > 1 ? `${qty} × ${money(unitPrice)} = ${money(total)}` : money(unitPrice);
+  const priceLabel = qty===0 ? 'stock' : qty>1 ? 'total' : 'price';
   const shots = dialinCountForBean(b);
 
   return `
@@ -173,7 +174,7 @@ function beanCardHtml(b){
       <div class="bean-card-stats">
         <div><b>${b.roastLevel?`<span class="roast-dot" style="background:${roastColor(b.roastLevel)}"></span>`:''}${b.roastLevel||'—'}</b>roast</div>
         <div><b>${b.weightOz? b.weightOz+' oz':'—'}</b>weight</div>
-        <div><b>${priceLine}</b>${qty>1?'total':'price'}</div>
+        <div><b>${priceLine}</b>${priceLabel}</div>
       </div>
       <div class="bean-card-foot">
         <span style="font-size:11px;color:var(--paper-muted);">${shots>0? `${shots} shot${shots===1?'':'s'} logged — tap to view` : 'No dial-ins yet — tap to log one'}</span>

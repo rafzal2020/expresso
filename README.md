@@ -24,19 +24,11 @@ Log what you made and what it cost you to make it. That cost is the whole saving
 - **Spend vs. Savings**: a bar chart comparing what you've put in (machine + beans, quantity-aware) against what your drinks have saved you, plus a "% paid back" meter and a line telling you straight out whether the setup has paid for itself yet.
 - **Drinks Made**: a bar chart of how many drinks you've made, switchable between weekly / monthly / annually views.
 
-## Why it's built the way it is
-
-No framework, no bundler, no build step — plain HTML/CSS/JS loaded as classic `<script>` tags sharing one namespace (`window.ShotLog`). That's a deliberate choice, not an oversight: this is meant to be opened straight from disk (double-click `index.html`) as well as hosted, and `<script type="module">` is blocked by CORS under `file://` in every major browser. Classic scripts aren't.
-
-The one real dependency — [Three.js](https://threejs.org) (r128, MIT licensed), used for the 3D bag — is vendored locally in `js/vendor/three.min.js` rather than pulled from a CDN, so it works offline too.
-
-All data lives in the browser's `localStorage`. Nothing is sent anywhere; there's no backend. Opening the app on a different device or in a different browser starts fresh.
-
 ## Running it
 
 Either:
 - **Open `index.html` directly** — no server needed.
-- **Visit the live link above**, or host the folder anywhere that serves static files (GitHub Pages, Netlify, etc.) — everything uses relative paths, so it works from any subpath.
+- **Visit the live link above**, or host the folder anywhere that serves static files (GitHub Pages, Netlify, etc.)
 
 ## Project structure
 

@@ -6,18 +6,17 @@ A home-espresso tracker: what beans you've bought, how you dialed them in, what 
 
 **Live:** https://rafzal2020.github.io/EspressoLog/
 
-## What's in it
+## Features
 
 ### Beans
 Log a bag when you buy it — roaster, roast level, weight, price. Buying the same bean again doesn't create a duplicate row: it merges into the existing card and bumps the quantity (shown as `qty × price = total`), with a quick +/− stepper to adjust stock without reopening the purchase form.
 
 Tap a bean card to open its detail sheet:
-- A continuously spinning **3D render of the bag** (real WebGL, not a static image), with the bean's actual name printed on the label.
 - Roast / weight / price-per-bag at a glance, plus the quantity stepper.
 - Every dial-in you've logged *for that specific bag* — grind, dose, yield, time, ratio, tasting notes, and a "keeper" star — with a "+ Log a shot" button scoped to that bean. Dial-ins live with the beans they belong to, instead of one long undifferentiated list.
 
 ### Drinks
-Log what you made and what it cost you to make it. That cost is the whole savings model — see My Stats.
+Log what you made and what it cost you to make it. That cost is the whole savings model
 
 ### My Stats
 - Your machine: photo, price paid, purchase date, last water-filter change, and general setup notes (grinder settings, machine quirks — the stuff that isn't tied to any one bag of beans).
@@ -39,7 +38,7 @@ manifest.json            PWA metadata (Add to Home Screen on iOS/Android)
 icons/                   app icons
 
 js/
-  state.js               seed data, load/save, one-time data migrations
+  state.js                seed data, load/save, one-time data migrations
   helpers.js              formatting/escaping utilities
   icons.js                tab-bar SVG icons
   motion.js               tab-indicator animation, icon gestures, scroll-driven hero shrink
@@ -57,4 +56,4 @@ js/
 
 ## Browser support
 
-Needs WebGL for the 3D bag render (falls back to a plain message if unavailable) and modern CSS (`aspect-ratio`, `backdrop-filter`, CSS custom properties). Built and tested primarily for mobile Safari and Chrome.
+Needs WebGL for the 3D bag render (falls back to a plain message if unavailable) and modern CSS (`aspect-ratio`, `backdrop-filter`, CSS custom properties). Built and tested primarily for mobile but works fine on desktop.

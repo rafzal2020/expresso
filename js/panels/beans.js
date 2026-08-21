@@ -186,5 +186,6 @@ function beanCardHtml(b){
 
 SL.renderBeans = renderBeans;
 SL.refreshBeanCard = refreshBeanCard;
+SL.computeBeanTotal = computeBeanTotal;
 
 })(window.ShotLog = window.ShotLog || {});

@@ -142,8 +142,11 @@ function computeSpendSaved(){
   // Spend is the investment (machine + beans). Saved is the sum of
   // every drink's estimated cost — that's the whole model: log a
   // drink with a cost, it adds straight to the Saved bar.
+  // Bean spend is never recomputed here — it's read straight from
+  // beans.js's own total (qty × price), so this can't drift out of
+  // sync with what the Beans tab itself shows.
   const machineSpend = parseFloat(state.machine.price) || 0;
-  const beanSpend = state.beans.reduce((s,b)=> s + (parseFloat(b.price)||0), 0);
+  const beanSpend = SL.computeBeanTotal();
   const saved = state.drinks.reduce((s,d)=> s + (parseFloat(d.cost)||0), 0);
   return { spend: machineSpend + beanSpend, saved };
 }

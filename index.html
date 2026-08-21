@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>expresso</title>
+
+<!-- iOS: makes "Add to Home Screen" behave like a real app (standalone, no Safari chrome) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="expresso">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+<meta name="theme-color" content="#DC4A2E">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="bg-glow" aria-hidden="true">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="blob b4"></div>
+  <div class="blob b5"></div>
+</div>
+
+<div class="app" id="app">
+  <div class="loading" id="loading">warming up the machine…</div>
+</div>
+
+<script src="js/helpers.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/state.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/sheet.js"></script>
+<script src="js/vendor/three.min.js"></script>
+<script src="js/beanBag3d.js"></script>
+<script src="js/recipeModal.js"></script>
+<script src="js/beanDetail.js"></script>
+<script src="js/panels/beans.js"></script>
+<script src="js/panels/drinks.js"></script>
+<script src="js/panels/stats.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
